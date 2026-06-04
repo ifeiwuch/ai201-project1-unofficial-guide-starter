@@ -10,6 +10,7 @@
 ## Domain
 
 <!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
+My domain is "Finding and joining clubs at Brown University". This knowledge is valuable because it contains both official statistics and guidelines, as well as firsthand expereinces from clubs. Additionaly, this information is hard to find through official channels because they don't detail the application processes, club culture, or experience. 
 
 ---
 
@@ -20,16 +21,16 @@
 
 | # | Source | Description | URL or location |
 |---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 1 | Student Activities | A list of all the current student groups at Brown | https://studentactivities.brown.edu/student-groups/undergraduate-student-groups |
+| 2 | Category Breakdown | A simple breakdown of the activity and spending categories of clubs | https://www.brownucs.org/category-breakdown |
+| 3 | Reddit: Club Recommendations | Students recommending specific clubs and extracurriculars to join at Brown | https://www.reddit.com/r/BrownU/comments/14dig65/any_ideas_for_clubs_to_join_or_extracurriculars/ |
+| 4 | UFB Handbook | A detailed guide to club funding, categorization, and basic guidelines | https://docs.google.com/document/d/1l15Xa-t4YXBceNENKNm--H0oE_sVd5FHrokNJZqkNwk/edit?tab=t.0 |
+| 5 | Prestigious Clubs | Breifly describes prestigious clubs | https://www.collegevine.com/faq/154640/what-are-the-most-prestigious-student-organizations-at-brown-university |
+| 6 | HerCampus Guide | A guide on how to approach joining clubs as a woman | https://www.hercampus.com/school/brown/a-guide-to-clubs-at-brown-two-tips-for-success/ |
+| 7 | Overview | Provides an overview of clubs at brown with FAQ | https://admissionsight.com/brown-university-clubs/ |
+| 8 | Application Process | Provides information of the application processes for some clubs | https://www.browndailyherald.com/article/2020/01/schmidt-21-university-student-organizations-have-room-to-be-more-inclusive |
+| 9 | Pre-Professional Club Selectivity | BDH article on the influx of first-year applicants to pre-professional clubs| https://www.browndailyherald.com/article/2025/10/pre-professional-club-leaders-note-influx-of-eager-first-year-applicants |
+| 10 | Activities Fair Experience | Description of how clubs present themselves and recruit new members at the activity fair | https://www.browndailyherald.com/article/2025/09/student-activities-fair-welcomes-first-years-with-music-treats-and-pirate-games |
 
 ---
 
