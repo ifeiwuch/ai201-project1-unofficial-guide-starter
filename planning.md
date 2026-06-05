@@ -128,6 +128,7 @@ graph LR
     class E retrieval
     class F generation
 
+![Pipeline Diagram](image.png)
 ---
 
 ## AI Tool Plan
