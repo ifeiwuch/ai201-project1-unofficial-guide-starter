@@ -530,6 +530,38 @@ def _merge_with_overlap(segments: list[str], chunk_size: int, overlap: int) -> l
     return [c for c in chunks if c]
 
 
+# Matches a whole line that is just an email address.
+_EMAIL_RE = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
+
+
+def chunk_activities_list(text: str) -> list[str]:
+    """One chunk per club for the Student Activities directory.
+
+    The directory is a flat alphabetical list of "club name" / "email" line
+    pairs. Packed into multi-club blobs (as the generic recursive chunker
+    does), a specific club name gets diluted among ~30 unrelated names and
+    embeds far from a name query — so a lookup like "Alexander Hamilton
+    Society" fails to retrieve. Splitting one entry per club, with its email,
+    makes each chunk a tight, specific target for retrieval.
+
+    Each email line is paired with the immediately preceding non-empty line
+    (the club name); header lines without a following email are skipped.
+    """
+    chunks: list[str] = []
+    name: str | None = None
+    for line in text.splitlines():
+        s = line.strip()
+        if not s:
+            continue
+        if _EMAIL_RE.fullmatch(s):
+            if name:
+                chunks.append(f"{name} — {s}")
+            name = None
+        else:
+            name = s
+    return chunks
+
+
 # --------------------------------------------------------------------------- #
 # Main
 # --------------------------------------------------------------------------- #
@@ -574,7 +606,12 @@ def main() -> int:
     print(f"\nStage 2: chunking (size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP})")
     all_chunks: list[dict] = []
     for doc in documents:
-        chunks = chunk_text(doc["text"])
+        # The Student Activities directory is chunked one club per chunk; every
+        # other source uses the generic recursive chunker.
+        if doc["slug"] == "student-activities-list":
+            chunks = chunk_activities_list(doc["text"])
+        else:
+            chunks = chunk_text(doc["text"])
         for i, chunk in enumerate(chunks):
             all_chunks.append({
                 "id": f"{doc['slug']}-{i}",

@@ -3,12 +3,17 @@ chromadb>=0.6.0
 groq==0.15.0
 python-dotenv==1.0.1
 
+# Pin NumPy below 2.0: the torch build that ships with sentence-transformers
+# is compiled against NumPy 1.x, and NumPy 2.x breaks model.encode()
+# ("RuntimeError: Numpy is not available").
+numpy<2
+
 # Document ingestion (ingest.py) — fetch web sources and strip HTML to text:
 requests>=2.32.0
 beautifulsoup4>=4.12.0
 
 # Query interface — add whichever you use for Milestone 5:
-# gradio>=6.9.0
+gradio>=6.9.0
 # streamlit>=1.40.0
 
 # Document ingestion — add if your documents/ folder contains .pdf files:
