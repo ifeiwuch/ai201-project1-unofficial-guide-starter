@@ -24,7 +24,7 @@ My domain is "Finding and joining clubs at Brown University". This knowledge is 
 | 1 | Student Activities List | A list of all the current student groups at Brown | https://studentactivities.brown.edu/student-groups/undergraduate-student-groups |
 | 2 | Category Breakdown | A simple breakdown of the activity and spending categories of clubs | https://www.brownucs.org/category-breakdown |
 | 3 | Reddit: Club Recommendations | Students recommending specific clubs and extracurriculars to join at Brown | https://www.reddit.com/r/BrownU/comments/14dig65/any_ideas_for_clubs_to_join_or_extracurriculars/ |
-| 4 | UFB Handbook | A detailed guide to club funding, categorization, and basic guidelines | https://docs.google.com/document/d/1l15Xa-t4YXBceNENKNm--H0oE_sVd5FHrokNJZqkNwk/edit?tab=t.0 |
+| 4 | Club culture | A BDH article detailing the club culture at Brown | https://www.browndailyherald.com/article/2024/10/cutthroat-or-collaborative-is-browns-club-culture-competitive |
 | 5 | Most Prestigious Clubs | Breifly describes "prestigious" clubs on campus | https://www.collegevine.com/faq/154640/what-are-the-most-prestigious-student-organizations-at-brown-university |
 | 6 | HerCampus Guide | A guide on how to approach joining clubs as a woman | https://www.hercampus.com/school/brown/a-guide-to-clubs-at-brown-two-tips-for-success/ |
 | 7 | Overview  | Provides an overview of clubs at brown with FAQ | https://admissionsight.com/brown-university-clubs/ |
