@@ -176,6 +176,7 @@ graph LR
 **Milestone 4 — Embedding and retrieval:**
 
 **Milestone 5 — Generation and interface:**
+
 Minimal working interface example
 import gradio as gr
 from query import ask  # or wherever your end-to-end function lives
@@ -194,3 +195,7 @@ with gr.Blocks() as demo:
     inp.submit(handle_query, inputs=inp, outputs=[answer, sources])
 
 demo.launch()
+
+Groq initialization steps:
+use Groq's  default llama-3.3-70b-versatile
+itialize it with from groq import Groq and my GROQ_API_KEY from .env
