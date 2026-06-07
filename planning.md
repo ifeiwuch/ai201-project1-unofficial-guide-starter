@@ -113,20 +113,6 @@ graph LR
     C --> D[Vector Store<br/>ChromaDB]
     D --> E[Retrieval]
     E --> F[Generation<br/>Groq]
-    
-    classDef ingestion stroke:#818cf8,fill:#eef2ff
-    classDef processing stroke:#2dd4bf,fill:#f0fdfa
-    classDef embedding stroke:#a78bfa,fill:#f5f3ff
-    classDef storage stroke:#fb923c,fill:#fff7ed
-    classDef retrieval stroke:#22d3ee,fill:#ecfeff
-    classDef generation stroke:#f87171,fill:#fef2f2
-    
-    class A ingestion
-    class B processing
-    class C embedding
-    class D storage
-    class E retrieval
-    class F generation
 
 ![Pipeline Diagram](image.png)
 ---
@@ -142,42 +128,24 @@ graph LR
      "I'll use AI to help me code" is not a plan.
      "I'll give Claude my Chunking Strategy section and ask it to implement chunk_text()
      with my specified chunk size and overlap" is a plan. -->
-     
-     I'll be using Claude for each step
-
-     Background: I'll give claude the context of my project and the overall goal I'm trying to achieve.
-     
-     Document Ingestion:
-     Input: My documents table
-     Output: A load_documents() function that fetches and extracts plain text from each URL. 
-     To verify, I'll ask it to print the first 200 characters of each loaded document to confirm clean text was extracted
-
-     Chunking:
-     Input: My chunking strategy section (recursive chunking, chunk size 600, overlap 50)
-     Output: A chunk_text() function using my exact parameters
-     To verify I'll print chunk count and a sample chunk to confirm size looks right and no chunks are getting cut mid-sentence awkwardly
-
-     Embedding + Vector Store:
-     Input: My retrieval section specifying all-MiniLM-L6-v2 and ChromaDB
-     Output: Code that embeds chunks and stores them in a local ChromaDB collection
-     To verify, ask ChromaDB for a known term (e.g. "activities fair") and confirm correct chunks come back
-
-     Retrieval:
-     Input: My retrieval section specifying top-k of 5
-     Output: A retrieve() function that takes a query string and returns the top 5 chunks
-
-     Generation:
-     Input: My architecture diagram showing Groq as the generation step, plus a description of the prompt format (system prompt + retrieved chunks + user question)
-     Output: A generate() function that formats the prompt and calls the Groq API
-     To verify I'll run my test questions.
 
 **Milestone 3 — Ingestion and chunking:**
 
+I'll ask claude to implement a script that laods my documents, cleans them, and produces chunks matching my specified chunk size. Since some of them are websites, I'll also ask claude to convert unstructured text from a forum/website into a plain text file for precessing. After the text is processed, I'll ask claude to clean the files from advertisements, banners, and so on. To verify, I'll ask it to count the total amount of chunks, and see if it adds up to a reasonable amount. 
+
 **Milestone 4 — Embedding and retrieval:**
+
+I'll ask claude to read planning.md and focus on the Retrieval Approach section and Architecture diagram. Then, I'll tell it to implement an embed_and_store() function that takes a list of chunks from the ingestion/chunking pipeline, embeds each chunk using all-MiniLM-L6-v2, stores each chunk in ChromaDB with source metadata, using all-MiniLM-L6-v2 via sentence-transformers for embedding and ChromaDB as the vector store. Additionally, I need to make sure Claude uses the existing project structure and make sure the code integrates with whatever ingestion/chunking code already exists in this repo. To verify, I'll tell claude to ask ChromaDB for a known term (e.g. "activities fair") and confirm the correct chunks come back.
 
 **Milestone 5 — Generation and interface:**
 
-Minimal working interface example
+First, I'll tell claude to read the pipeline diagram to use the given interface template to create an interface. For the generation aspect, I'll emphasize that all generated answers are retrieved from context only, with the source attribute. Furthermore, I'll give claude the output format of the generation. Before it runs any code, I'll ask it to double-check if the system explicityly enforces grounding. To verify I'll run my test questions.
+
+Groq initialization steps:
+use Groq's  default llama-3.3-70b-versatile
+itialize it with from groq import Groq and my GROQ_API_KEY from .env
+
+Minimal working interface example:
 import gradio as gr
 from query import ask  # or wherever your end-to-end function lives
 
@@ -195,7 +163,3 @@ with gr.Blocks() as demo:
     inp.submit(handle_query, inputs=inp, outputs=[answer, sources])
 
 demo.launch()
-
-Groq initialization steps:
-use Groq's  default llama-3.3-70b-versatile
-itialize it with from groq import Groq and my GROQ_API_KEY from .env
